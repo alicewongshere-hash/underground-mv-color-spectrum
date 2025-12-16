@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>MV Color Spectrum Comparison</title>
+<style>
+  body {
+    font-family: sans-serif;
+    background: #fff;
+    margin: 20px;
+  }
+  .container {
+    max-width: 900px;
+    margin: auto;
+  }
+  .title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .spectrum {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+  }
+  input[type=range] {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .label {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="title">MV 色彩时间谱（拖动滑块进行比较）</div>
+
+  <img id="spectrumImage" class="spectrum" src="m1_1.png">
+
+  <input type="range" min="0" max="29" step="1" value="0" id="slider">
+
+  <div class="label" id="label"></div>
+</div>
+
+<script>
+const images = [
+  {src: "mv01.png", label: "underground"},
+  {src: "mv02.png", label: "underground"},
+  {src: "mv03.png", label: "underground"},
+  {src: "mv04.png", label: "underground"},
+  {src: "mv05.png", label: "underground"},
+  {src: "mv06.png", label: "underground"},
+  {src: "mv07.png", label: "underground"},
+  {src: "mv08.png", label: "underground"},
+  {src: "mv09.png", label: "underground"},
+  {src: "mv10.png", label: "underground"},
+  {src: "mv11.png", label: "underground"},
+  {src: "mv12.png", label: "underground"},
+  {src: "mv13.png", label: "underground"},
+  {src: "mv14.png", label: "underground"},
+  {src: "mv15.png", label: "underground"},
+  {src: "mv16.png", label: "underground"},
+  {src: "mv17.png", label: "underground"},
+  {src: "mv18.png", label: "underground"},
+  {src: "mv19.png", label: "underground"},
+  {src: "mv20.png", label: "underground"},
+  {src: "mv21.png", label: "underground"},
+  {src: "mv22.png", label: "underground"},
+  {src: "mv23.png", label: "underground"},
+  {src: "mv24.png", label: "underground"},
+  {src: "mv25.png", label: "underground"},
+  {src: "mv26.png", label: "underground"},
+  {src: "mv27.png", label: "underground"},
+  {src: "mv28.png", label: "underground"},
+  {src: "mv29.png", label: "underground"},
+  {src: "mv30.png", label: "underground"},
+];
+
+const slider = document.getElementById("slider");
+const img = document.getElementById("spectrumImage");
+const label = document.getElementById("label");
+
+function update(index) {
+  img.src = images[index].src;
+  label.innerText = images[index].label;
+}
+
+slider.addEventListener("input", e => update(e.target.value));
+update(0);
+</script>
+</body>
+</html>
